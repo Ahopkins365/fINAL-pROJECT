@@ -1,0 +1,31 @@
+import requests
+api_key = "1779690e9d63ed2efde5dd1a036f943a"
+url = "http://api.openweathermap.org/data/2.5/weather?"
+city_name = input("Enter city name : ")
+full_url = "http://api.openweathermap.org/data/2.5/weatherq=" + city_name + "adamhopkins=" + "1779690e9d63ed2efde5dd1a036f943a"
+req = requests.get("http://api.openweathermap.org/data/2.5/weatherq=")
+info = req.json()
+info ["cod"] != "404" 
+x = info["main"] 
+current_temperature = x["temp"]
+tnc = round(float(current_temperature - 273.15),2)
+current_pressure = x["pressure"] 
+current_humidiy = x["humidity"] 
+z = info["weather"] 
+weather_description = z[0]["description"]
+s = info["wind"]
+speed = s["speed"]
+print()
+print("Temperature (in celsius unit): ", 
+                  round(float(current_temperature - 273.15),2) , "°C",
+            "\nAtmospheric pressure : " +
+                  str(current_pressure) + "hpa"
+            "\nHumidity : " +
+                  str(current_humidiy) + "%"
+            "\nDescription: " +
+                  str(weather_description).capitalize()+
+                "\nWind Speed :" + str(speed) + "m/s")
+print(" City Not Found ")
+ 
+
+
